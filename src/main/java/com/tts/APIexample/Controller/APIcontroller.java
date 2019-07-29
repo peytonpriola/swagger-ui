@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tts.APIexample.model.Item;
@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiResponses;
 	    @ApiResponse(code = 200, message = "Successfully retrieved menu items"),
 	    @ApiResponse(code = 401, message = "You are not authorized to view the menu items")
 	})
+@RequestMapping("/v1")
 public class APIcontroller {
 	
 	@ApiOperation(value = "Get all menu items", response = Item.class, 
@@ -32,6 +33,8 @@ public class APIcontroller {
 	public ResponseEntity<List<Item>> getItems() {
 			return new ResponseEntity<>(new ArrayList<Item>(), HttpStatus.OK);
 }
+	
+	
 	
 		
 
